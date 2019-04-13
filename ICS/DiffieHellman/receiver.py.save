@@ -1,0 +1,17 @@
+import socket
+b = 6
+p = 13
+g = 5
+client = socket.socket()
+host =socket.gethostname()
+port = 12345
+client.connect((host, port))
+A = client.recv(1024)
+shared_key = (A**b) % p
+client.send(str(g**b))
+K_recv = client.recv(1024)
+	if c.recv(1024) == shared_key:
+		print "Secure Communication has been established"
+	else:
+		print "Communication will NOT be secure!"
+client.close()
